@@ -4,8 +4,10 @@ body{
     font-size: 16px;
 }
 
-#page-wrapper{
+#page-wrapper, .container-fluid{
     max-width:1200px;
+}
+#page-wrapper{
     margin:0px auto;
     width:100%;
     padding:0px 20px;
@@ -15,32 +17,39 @@ body{
 }
 
 .search-group{
-    margin:0px 0px 15px;
+margin:0px 0px 15px;
 }
 
+.search-group:before{
+content: "\f002";
+font: normal normal normal 14px/1 FontAwesome;
+font-size: inherit;
+color:#999;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+position: absolute;
+top: .5em;
+left: 10px;
+font-size: 1em;
+z-index: 3;
+}
+    .search-group input{
+    padding-left:35px;
+    }
 
 /*tables*/
 .table-header{
-	border-top:2px solid #c6c6c6;
-	text-transform:uppercase;
+	border-top:1px solid #ddd;
+    background:#f8f8f8;
 }
-    .table-header .column{
-    	padding:16px 16px 14px;
-    	line-height: 1em;
-    	color:#4c4c4c;
-        border-bottom: 2px solid #c6c6c6;
-        cursor: pointer;
-    }
 tbody tr{
     cursor: pointer;
     border-top: 1px solid #ddd;
 }
-tbody tr:nth-child(2n){
-    background:#f8f8f8;
-}
 tbody tr:not(.loading-table):hover, 
 tr.selected{
-    background: #d8d8d8 !important;
+    background: #D8EDF8;
 }
     .table>tbody>tr>td{
     padding:8px 16px;
