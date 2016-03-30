@@ -1,0 +1,60 @@
+
+  	<div id="ux-directory" class="row">
+  		<div class="col-xs-12 col-sm-12 col-md-8">
+	  		<div class="input-group search-group">
+		      <input type="text" class="form-control" placeholder="Search" ng-model="searchTerm">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button">Go!</button>
+		      </span>
+		    </div><!-- /input-group -->
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div class="col-xs-7 col-sm-7 col-md-8">
+  			<table class="table">
+				<thead class="table-header">
+					<th class="column col-name" ng-click="sortBy('firstName+surname')">
+						Name
+        				<span ng-show="sortType == 'firstName+surname' && sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'firstName+surname' && !sortReverse" class="fa fa-caret-down"></span>
+					</th>
+					<th class="column col-occupation" ng-click="sortBy('occupation')">
+						Occupation
+        				<span ng-show="sortType == 'occupation' && sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'occupation' && !sortReverse" class="fa fa-caret-down"></span>
+					</th>	
+					<th class="column col-company" ng-click="sortBy('company')">
+						Company
+        				<span ng-show="sortType == 'company' && sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'company' && !sortReverse" class="fa fa-caret-down"></span>
+					</th>	
+				</thead>
+				<tbody>
+					<tr ng-repeat="member in members | orderBy:sortType:sortReverse | filter:searchTerm" 
+						ng-class="{selected : (selectedMember.id === member.id)}"
+						ng-click="selectMember(member)"
+						class="">
+						<td class="col-name">{{member.firstName}} {{member.surname}}</td>
+						<td class="col-occupation">{{member.occupation}}</td>
+						<td class="col-company">{{member.company}}</td>
+					</tr>
+					<tr class="loading-table" ng-show="!membersLoaded">
+						<td class="column"  colspan="6">
+							<i class="fa fa-spinner spinner" ng-class="{'spinning' : !membersLoaded }"></i>
+							Loading...
+						</td>
+					</tr>
+				</tbody>
+				
+			</table>
+  		</div>
+  		<div class="col-xs-5 col-sm-5 col-md-4 col-lg-3 col-lg-offset-1 ">
+  			<div class="member-profile panel" ng-show="selectedMember">
+	  			<h3>{{selectedMember.firstName}} {{selectedMember.surname}}</h3>
+	  			<img ng-src="{{selectedMember.portrait}}"></img>
+	  			<div class="occupation">{{selectedMember.occupation}}</div>
+	  			<div class="company">{{selectedMember.company}}</div>
+	  			<div class="motto">{{selectedMember.motto}}</div>
+  			</div>
+  		</div>
+  	</div>

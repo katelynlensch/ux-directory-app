@@ -1,0 +1,171 @@
+/* app css stylesheet */
+body{
+    background-color:#fff;
+    font-size: 16px;
+}
+
+#page-wrapper{
+    max-width:1200px;
+    margin:0px auto;
+    width:100%;
+    padding:0px 20px;
+}
+.page-content{
+    margin-top:30px;
+}
+
+.search-group{
+    margin:0px 0px 15px;
+}
+
+
+/*tables*/
+.table-header{
+	border-top:2px solid #c6c6c6;
+	text-transform:uppercase;
+}
+    .table-header .column{
+    	padding:16px 16px 14px;
+    	line-height: 1em;
+    	color:#4c4c4c;
+        border-bottom: 2px solid #c6c6c6;
+        cursor: pointer;
+    }
+tbody tr{
+    cursor: pointer;
+    border-top: 1px solid #ddd;
+}
+tbody tr:nth-child(2n){
+    background:#f8f8f8;
+}
+tbody tr:not(.loading-table):hover, 
+tr.selected{
+    background: #d8d8d8 !important;
+}
+    .table>tbody>tr>td{
+    padding:8px 16px;
+    border:none;
+    }
+    .col-name{
+    min-width: 250px
+    }
+    
+    
+
+.member-profile{
+background-color:#f8f8f8;   
+text-align: center;
+padding:15px 15px 30px;
+}
+.member-profile h3{
+margin-top:0px;
+margin-bottom: 15px;
+}
+
+.member-profile img{
+width:50%; height:auto;
+margin-bottom: 25px;
+}
+.occupation{
+    width:75%; 
+    margin:0px auto;
+    text-align:left;
+    font-size:.875em;
+}
+.company{
+    width:75%; 
+    margin:0px auto;
+    text-align:left;
+    text-transform: uppercase;
+    font-size:.75em;
+    color:#999;
+}
+
+
+.motto{
+    padding:0px 15px;
+    margin: 15px 0px 0px;
+    color:#333;
+    font-style: italic;
+    text-align: center; 
+    word-wrap: break-word;
+}
+.motto:before,
+.motto:after{
+    font-size:3em;
+    color:#d8d8d8;
+    position: absolute;
+    font-style:normal;
+}
+.motto:before{
+    content: "“";
+    margin-top:-.45em;
+    margin-left: -25px;
+}
+.motto:after{
+    content: "”";
+    margin-top: -0.35em;
+    margin-left: 10px;
+}
+
+
+.loading-table{
+    color: #999;
+    text-align:center;
+}
+.loading-table .column {
+    padding-top: 50px;
+}
+.spinner.spinning{
+	-webkit-animation: infinite-spinning 900ms infinite steps(9);
+	-moz-animation: infinite-spinning 900ms infinite steps(9);   
+	-ms-animation: infinite-spinning 900ms infinite steps(9);
+	animation: infinite-spinning 900ms infinite steps(9);
+}
+
+@-moz-keyframes infinite-spinning { 
+    to { -moz-transform: rotate(1turn); }
+}
+@-webkit-keyframes infinite-spinning {
+    to { -webkit-transform: rotate(1turn); }
+}
+@keyframes infinite-spinning{
+  to {transform: rotate(1turn);}
+}
+
+@media (max-width: 767px){
+    body{
+        font-size:14px;
+    }
+}
+
+@media (max-width: 991px){
+    #page-wrapper{
+        padding:0px;
+    }
+    .table-header{
+        display: none;
+    }
+    .table>tbody>tr{
+        padding:10px 0px;
+        display: block;
+    }
+    
+    .table>tbody>tr>td{
+        padding: 0px 16px;
+        display: block;
+        border-top: 0px;
+    }
+    
+    td.col-name{
+        font-size:1.125em;
+        font-weight: bold;
+    }
+    td.col-occupation:before{
+        content:"Occupation: ";
+        
+    }
+    td.col-company:before{
+        content:"Company: ";
+    }
+}
