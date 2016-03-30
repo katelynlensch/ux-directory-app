@@ -30,9 +30,9 @@ text-rendering: auto;
 -moz-osx-font-smoothing: grayscale;
 position: absolute;
 top: .5em;
-left: 10px;
+left: 28px;
 font-size: 1em;
-z-index: 3;
+z-index: 99;
 }
     .search-group input{
     padding-left:35px;
